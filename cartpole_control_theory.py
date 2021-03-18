@@ -17,32 +17,36 @@ class Controller:
         # total mass
         self.mt = environment.env.total_mass
         
+    def state_controller(self):
         # state matrix
-        self.a = self.g/(self.lp*(4.0/3 - self.mp/(self.mp+self.mk)))
-        self.A = np.array([[0, 1, 0, 0],
-              [0, 0, self.a, 0],
+        a = self.g/(self.lp*(4.0/3 - self.mp/(self.mp+self.mk)))
+        A = np.array([[0, 1, 0, 0],
+              [0, 0, a, 0],
               [0, 0, 0, 1],
-              [0, 0, self.a, 0]])
+              [0, 0, a, 0]])
               
         # input matrix
-        self.b = -1/(self.lp*(4.0/3 - self.mp/(self.mp+self.mk)))
-        self.B = np.array([[0], [1/self.mt], [0], [self.b]])
+        b = -1/(self.lp*(4.0/3 - self.mp/(self.mp+self.mk)))
+        B = np.array([[0], [1/self.mt], [0], [b]])
         
         # choose R (weight for input)
-        self.R = np.eye(1, dtype=int)
+        R = np.eye(1, dtype=int)
         # choose Q (weight for state)
-        self.Q = 5*np.eye(4, dtype=int)
+        Q = 5*np.eye(4, dtype=int)
         
         # solve ricatti equation
-        self.P = linalg.solve_continuous_are(self.A, self.B, self.Q, self.R)
+        P = linalg.solve_continuous_are(A, B, Q, R)
         
         # calculate optimal controller gain
-        self.K = np.dot(np.linalg.inv(self.R), np.dot(self.B.T, self.P))
+        K = np.dot(np.linalg.inv(R), np.dot(B.T, P))
+
+        return K
         
         
     def apply_state_controller(self, x):
+        K = self.state_controller()
         # feedback controller
-        u = -np.dot(self.K, x)   # u = -Kx
+        u = -np.dot(K, x)   # u = -Kx
         if u > 0:
             return 1, u     # if force_dem > 0 -> move cart right
         else:
