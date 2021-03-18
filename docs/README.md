@@ -1,1 +1,3 @@
-### Project images
+## Project images
+
+Figures presenting the experimental results.
