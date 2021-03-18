@@ -17,3 +17,22 @@ The [CartPole-v1](https://gym.openai.com/envs/CartPole-v1/) environment from Ope
 <img src="docs/images/q-learning.png" align="middle" width="3000"/>
 
 <img src="docs/images/iterations-per-episode.png" align="middle" width="3000"/>
+
+##### You can clone the project from repository using the following command:
+
+    git clone https://github.com/JoKoum/reinforcement-learning-vs-control-theory.git
+     
+##### You can create a new virtual environment and install the dependencies using the requirements.txt file:
+On macOS and Linux:
+
+    python3 -m venv <env>
+
+On Windows:
+
+    py - m venv <env>
+
+Package installation using requirements.txt file:
+
+    pip install -r requirements.txt
+
+##### more info in [pip and virtual environments](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
