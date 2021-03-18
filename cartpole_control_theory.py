@@ -42,7 +42,6 @@ class Controller:
 
         return K
         
-        
     def apply_state_controller(self, x):
         K = self.state_controller()
         # feedback controller
