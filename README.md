@@ -37,7 +37,10 @@ and P is found by solving the continuous time Riccati differential equation:
 
 <img src="https://miro.medium.com/max/700/1*Y3Ijb_oisyIRAWAjs_XsTA.png" align="middle"/>
 
-    Cart position and velocity along with pole angle and angular velocity figures in each time step are presented below:
+
+
+- #### Results produced at one of the experiments
+#### Cart position and velocity along with pole angle and angular velocity figures in each time step are presented below:
 
 <img src="docs/images/controller.png" align="middle" width="1000"/>
 
@@ -48,14 +51,15 @@ Q-learning is a Reinforcement Learning algorithm that relies on an agent updatin
 
 <img src="https://miro.medium.com/max/700/0*J59DtEMVJofQU8uc" align="middle"/>
 
+In the implemented approach, epsilon value was set to 1 (higher exploration) and got reduced by 0.01 per episode until reaching 0.01 (higher exploitation). 
 
-
-    Cart position and velocity along with pole angle and angular velocity figures in each time step are presented below:
+- #### Results produced at one of the experiments (ε-greedy approach doesn't always produce same results)
+#### Cart position and velocity along with pole angle and angular velocity figures in each time step are presented below:
 
 <img src="docs/images/q-learning.png" align="middle" width="1000"/>
 
 
-    Total iterations (balance pole without exceeding threshold) per episode are shown at the figure below:
+#### Total iterations (balance pole without exceeding threshold) per episode are shown at the figure below:
 
 <img src="docs/images/iterations-per-episode.png" align="middle" width="1000"/>
 
