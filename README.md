@@ -15,7 +15,7 @@ The control mechanism utilizes a Linear Quadratic Regulator (LQR) for the cost f
 
 The system is described by the following equation:
 
-<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/cfe966c88cbedb70bd3d50450b4d005b3df2c26b" align="middle"/>
+$\dot x = Ax + Bu$
 
 or
 
@@ -23,23 +23,22 @@ or
 
 LQR tries to find an optimal control matrix K by minimizing the cost function:
 
-<img src="https://miro.medium.com/max/700/1*xKUp2kipR9T-oDf629fROQ.png" align="middle"/>
+$\min_u{J} = \int_{0}^{\infty} x^TQx + u^TRu \,dx$
 
 the feedback control law that minimizes the cost function is:
 
-<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d388a55cc73bf2539d5048175568d1815b272bd7" align="middle"/>
+$u = - Kx$
 
 where K is given by 
 
-<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/42c35b5011b453b957a8fc399e67152532bf51b5" align="middle"/>
+$K = R^{-1} (B^TP(t) + N^T)$ 
 
 and P is found by solving the continuous time Riccati differential equation:
 
-<img src="https://miro.medium.com/max/700/1*Y3Ijb_oisyIRAWAjs_XsTA.png" align="middle"/>
+$A^TP + PA - PBR^{-1}B^TP + Q = 0$
 
 
-
-- #### Results produced at one of the experiments
+#### Results produced at one of the experiments
 #### Cart position and velocity along with pole angle and angular velocity figures in each time step are presented below:
 
 <img src="docs/images/controller.png" align="middle" width="1000"/>
